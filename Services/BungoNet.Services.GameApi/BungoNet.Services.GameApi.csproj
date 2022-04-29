@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GenHTTP.Core" Version="6.3.4" />
+    <PackageReference Include="GenHTTP.Modules.Conversion" Version="6.3.4" />
+	<PackageReference Include="GenHTTP.Modules.Security" Version="6.3.4" />
+	<PackageReference Include="GenHTTP.Modules.Webservices" Version="6.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BungoNet.Extensions\BungoNet.Extensions.csproj" />
+    <ProjectReference Include="..\..\BungoNet.Serialization\BungoNet.Serialization.csproj" />
+  </ItemGroup>
+
+</Project>
