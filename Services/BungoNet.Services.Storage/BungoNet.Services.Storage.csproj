@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Content\saba_comorensis.jpg" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="Content\saba_comorensis.jpg" />
+    <EmbeddedResource Include="Content\Conduit_ITC.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="GenHTTP.Core" Version="6.3.4" />
     <PackageReference Include="GenHTTP.Modules.Conversion" Version="6.3.4" />
 	<PackageReference Include="GenHTTP.Modules.Security" Version="6.3.4" />

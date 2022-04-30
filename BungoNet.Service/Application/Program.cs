@@ -7,7 +7,10 @@ using GenHTTP.Modules.Layouting;
 
 using BungoNet.Serialization.BnetApi;
 
-namespace BungoNet.Service
+using BungoNet.Services.GameApi;
+using BungoNet.Services.Storage.Resource;
+
+namespace BungoNet.Service.Application
 {
     class Program
     {
@@ -17,23 +20,22 @@ namespace BungoNet.Service
                 Add(new FlexibleContentType(ContentType.TextPlain), new BnetApiFormat())
                 .Default(ContentType.TextPlain);
 
-            var gameApiResource = ServiceResource.From<Services.GameApi.GameApiResource>()
-                .Formats(gameApiRegistry);
+            var gameApiResource = GameApiResource.Create();
 
-            var hopperResource = ServiceResource.From<Services.Storage.Resource.HopperResource>();
+            var hopperResource = ServiceResource.From<HopperMatchmakingNightmapResource>();
 
-            var cunt4 = Layout.Create()
-                .Add("default_hoppers", hopperResource);
-            var cunt3 = Layout.Create()
-                .Add("12070", cunt4);
-            var cunt2 = Layout.Create()
-                .Add("tracked", cunt3);
-            var cunt = Layout.Create()
-                .Add("title", cunt2);
+            //var cunt4 = Layout.Create()
+            //    .Add("default_hoppers", hopperResource);
+            //var cunt3 = Layout.Create()
+            //    .Add("12070", cunt4);
+            //var cunt2 = Layout.Create()
+            //    .Add("tracked", cunt3);
+            //var cunt = Layout.Create()
+            //    .Add("title", cunt2);
 
             var service = Layout.Create()
                 .Add("gameapi", gameApiResource)
-                .Add("storage", cunt);
+                .Add("storage", hopperResource);
 
             Host.Create()
                 .Port(80)
